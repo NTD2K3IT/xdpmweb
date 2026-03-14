@@ -8,14 +8,12 @@
 <style>
 body{
  font-family: Arial;
- background:#f4f6f9;
 }
 
 .container{
  width:700px;
  margin:auto;
  margin-top:50px;
- background:white;
  padding:20px;
  border-radius:10px;
  box-shadow:0 0 10px rgba(0,0,0,0.1);
@@ -48,7 +46,6 @@ button{
 }
 
 .edit{
- background:#ffc107;
 }
 
 .delete{
