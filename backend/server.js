@@ -22,7 +22,7 @@ app.get("/", (req, res) => {
   <h2>Danh sách nhóm đăng ký</h2>
 git remote add origin https://github.com/NTD2K3IT/xdpmweb.git
   <ul>
-  <li><a href="https://ctxh.free.nf/">Giao diện trang chủ</a></li>
+  <li><a href="https://xdpmweb-3.onrender.com">Giao diện trang chủ</a></li>
    <li><a href="/users">Tất cả usres</a></li>
    <li><a href="/users/1">Users 1</a></li>
    <li><a href="/users/2">Users 2</a></li>
