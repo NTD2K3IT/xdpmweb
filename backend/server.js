@@ -7,13 +7,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const db = mysql.createConnection({
- host: process.env.MYSQLHOST,
- user: process.env.MYSQLUSER,
- password: process.env.MYSQLPASSWORD,
- database: process.env.MYSQLDATABASE,
- port: process.env.MYSQLPORT
-});
+const db = mysql.createConnection(process.env.DATABASE_URL);
 
 db.connect(err=>{
  if(err){
@@ -121,6 +115,8 @@ app.put("/users/:id",(req,res)=>{
 
 });
 
-app.listen(3306,()=>{
- console.log("Server running on port 3000");
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT,()=>{
+ console.log("Server running on port", PORT);
 });
