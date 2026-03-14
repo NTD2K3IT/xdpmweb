@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="vi">
 
 <head>
+<meta charset="UTF-8">
 <title>Quản lý Users</title>
 
 <style>
-
 body{
  font-family: Arial;
  background:#f4f6f9;
@@ -76,7 +76,6 @@ th{
 .search{
  margin-left:20px;
 }
-
 </style>
 
 </head>
@@ -93,7 +92,6 @@ th{
 <input type="text" id="search" class="search" placeholder="Tìm user..." onkeyup="searchUser()">
 
 <table>
-
 <thead>
 <tr>
 <th>ID</th>
@@ -110,11 +108,13 @@ th{
 
 <script>
 
+const API = "https://xdpmweb-d2i0.onrender.com";
+
 let users=[];
 
 function loadUsers(){
 
- fetch("https://xdpmweb-d2i0.onrender.com/users")
+ fetch(API + "/users")
  .then(res=>{
   if(!res.ok){
    throw new Error("Server error: "+res.status);
@@ -164,7 +164,7 @@ function addUser(){
   return;
  }
 
- fetch("https://xdpmweb-d2i0.onrender.com/users",{
+ fetch(API + "/users",{
 
   method:"POST",
   headers:{
@@ -174,11 +174,9 @@ function addUser(){
 
  })
  .then(res=>res.json())
- .then(data=>{
-
+ .then(()=>{
   document.getElementById("name").value="";
   loadUsers();
-
  });
 
 }
@@ -187,13 +185,10 @@ function deleteUser(id){
 
  if(!confirm("Bạn chắc chắn muốn xóa?")) return;
 
- fetch("https://xdpmweb-d2i0.onrender.com/users/"+id,{
+ fetch(API + "/users/"+id,{
   method:"DELETE"
  })
- .then(res=>res.json())
- .then(data=>{
-  loadUsers();
- });
+ .then(()=>loadUsers());
 
 }
 
@@ -203,7 +198,7 @@ function editUser(id){
 
  if(!name) return;
 
- fetch("https://xdpmweb-d2i0.onrender.com/users/"+id,{
+ fetch(API + "/users/"+id,{
 
   method:"PUT",
   headers:{
@@ -212,10 +207,7 @@ function editUser(id){
   body:JSON.stringify({name:name})
 
  })
- .then(res=>res.json())
- .then(data=>{
-  loadUsers();
- });
+ .then(()=>loadUsers());
 
 }
 
@@ -223,7 +215,7 @@ function searchUser(){
 
  const keyword=document.getElementById("search").value.toLowerCase();
 
- const filtered=users.filter(u=>
+ const filtered=users.filter(u =>
   u.name.toLowerCase().includes(keyword)
  );
 
@@ -236,5 +228,4 @@ loadUsers();
 </script>
 
 </body>
-
 </html>
