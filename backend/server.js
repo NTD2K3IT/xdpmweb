@@ -19,8 +19,7 @@ db.connect(err=>{
 app.get("/", (req, res) => {
 
  res.send(`
-  <h2>Danh sách nhóm đăng ký</h2>
-git remote add origin https://github.com/NTD2K3IT/xdpmweb.git
+  <h2>Danh sách link nhóm đăng ký</h2>
   <ul>
   <li><a href="https://xdpmweb-3.onrender.com">Giao diện trang chủ</a></li>
    <li><a href="/users">Tất cả usres</a></li>
