@@ -121,6 +121,6 @@ app.put("/users/:id",(req,res)=>{
 
 });
 
-app.listen(3306,()=>{
+app.listen(port,()=>{
  console.log("Server running on port 3000");
 });
