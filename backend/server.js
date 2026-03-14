@@ -8,10 +8,11 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
- host: "localhost",
- user: "root",
- password: "123456",
- database: "xdpmweb"
+ host: process.env.MYSQLHOST,
+ user: process.env.MYSQLUSER,
+ password: process.env.MYSQLPASSWORD,
+ database: process.env.MYSQLDATABASE,
+ port: process.env.MYSQLPORT
 });
 
 db.connect(err=>{
@@ -25,7 +26,7 @@ app.get("/", (req, res) => {
 
  res.send(`
   <h2>Danh sách nhóm đăng ký</h2>
-
+git remote add origin https://github.com/NTD2K3IT/xdpmweb.git
   <ul>
    <li><a href="/users">front_end</a></li>
    <li><a href="/groups">tats ca users</a></li>
