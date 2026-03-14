@@ -23,7 +23,9 @@ app.get("/", (req, res) => {
 git remote add origin https://github.com/NTD2K3IT/xdpmweb.git
   <ul>
    <li><a href="/users">front_end</a></li>
-   <li><a href="/groups">tats ca users</a></li>
+   <li><a href="/users/1">tats ca users</a></li>
+   <li><a href="/users/2">tats ca users</a></li>
+   <li><a href="/users/3">tats ca users</a></li>
   </ul>
  `);
 
