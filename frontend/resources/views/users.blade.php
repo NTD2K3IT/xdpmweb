@@ -115,12 +115,19 @@ let users=[];
 function loadUsers(){
 
  fetch("https://xdpmweb-d2i0.onrender.com/users")
- .then(res=>res.json())
+ .then(res=>{
+  if(!res.ok){
+   throw new Error("Server error: "+res.status);
+  }
+  return res.json();
+ })
  .then(data=>{
-
   users=data;
   renderUsers(data);
-
+ })
+ .catch(err=>{
+  console.error(err);
+  alert("Không tải được dữ liệu từ API");
  });
 
 }
