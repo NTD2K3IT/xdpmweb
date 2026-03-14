@@ -114,7 +114,7 @@ let users=[];
 
 function loadUsers(){
 
- fetch("http://localhost:3000/users")
+ fetch("https://xdpmweb-d2i0.onrender.com/users")
  .then(res=>res.json())
  .then(data=>{
 
@@ -157,7 +157,7 @@ function addUser(){
   return;
  }
 
- fetch("http://localhost:3000/users",{
+ fetch("https://xdpmweb-d2i0.onrender.com/users",{
 
   method:"POST",
   headers:{
@@ -180,7 +180,7 @@ function deleteUser(id){
 
  if(!confirm("Bạn chắc chắn muốn xóa?")) return;
 
- fetch("http://localhost:3000/users/"+id,{
+ fetch("https://xdpmweb-d2i0.onrender.com/users/"+id,{
   method:"DELETE"
  })
  .then(res=>res.json())
@@ -196,7 +196,7 @@ function editUser(id){
 
  if(!name) return;
 
- fetch("http://localhost:3000/users/"+id,{
+ fetch("https://xdpmweb-d2i0.onrender.com/users/"+id,{
 
   method:"PUT",
   headers:{
